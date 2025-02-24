@@ -1,0 +1,19 @@
+body {
+    background-color: #1E3A8A;
+}
+
+section {
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+.sections {
+    background-color: bisque;
+    padding: 20px;
+    margin:20px;
+    width: 40%;
+    border-radius: 8px;
+    border-style: solid;
+    text-align: center;
+}

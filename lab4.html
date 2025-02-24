@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 - Isa Ansari
+    </title>
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+    <h1 id="Heading">Lab 4 Time!</h1>
+    <section>
+        <div class="sections"> <!-- Name Form -->
+            <form name="NameField">
+                <label for="Name">Enter Name:</label>
+                <input type="text" id="name" required>
+                <button type="submit" onclick = "validate()">Alert Me!</button>
+            </form>
+        </div>
+
+        <div class="sections"> <!-- Change Color of Page -->
+            <button type="button" onclick="changeColor()">Change Color!</button>
+        </div>
+
+        <div class="sections"> <!-- Text Tester/Validator -->
+            <form name="textValidation">
+                <label for="textTester">Text Tester:</label>
+                <input type="text" id="textTesterInput">
+                <button type="button" onclick = "textTester()">Validate Text</button>
+            </form>
+        </div>
+
+        <div class="sections"> <!-- Text Adder -->
+            <button type="button" onclick="addText()">Add Text!</button>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function validate() { /*Validate if name field is empty or not, and prompt alerts accordingly*/
+
+            if(document.NameField.name.value.trim() === "") {
+                alert('Enter Your Name Please!');
+                console.log("no name")
+            }
+            else {
+                let username = document.getElementById("name").value;
+                alert('Hello ' + username + '!');
+            }
+        }
+
+        let isBlue = true;
+        function changeColor() { /*Validate if name field is empty or not, and prompt alerts accordingly*/
+            if (isBlue) {
+                document.body.style.backgroundColor = "#F4A261";
+            }
+            else {
+                document.body.style.backgroundColor = "#1E3A8A";
+            }
+            isBlue = !isBlue;
+        }
+
+
+        let textadder = true;
+        function addText() { /*Have a variable that lets us know if text has been added already or not. If it has, no further text is added.*/
+            if (textadder) {
+                let Head = document.getElementById("Heading")
+                Head.textContent = Head.textContent + " - Adding Text"
+                textadder = !textadder;
+            }
+            console.log(textadder);
+            
+        }
+
+        function textTester() {
+            var validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            let inputText = document.getElementById("textTesterInput").value;
+
+            if (validationRegex.test(inputText)) {
+                alert('How about...nah')
+            }
+            else {
+                textTesterInput.value = "" /*Clear the field if no violations are detected*/
+            }
+        }
+    </script>
+</body>
+
+</html>
